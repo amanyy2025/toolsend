@@ -1,110 +1,488 @@
 <!doctype html>
 <html lang="ar" dir="rtl">
+
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>دليل المدارس | التواصل عبر الواتساب</title>
-<meta name="description" content="دليل المدارس للبحث والتواصل عبر واتساب وفتح مواقع المدارس على الخريطة.">
-<style>
-:root{--green:#126b50;--green2:#16845f;--ink:#172b25;--muted:#687a73;--line:#e2ebe6;--bg:#f4f8f6;--white:#fff}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Tahoma,Arial,sans-serif;line-height:1.6}
-header{background:linear-gradient(130deg,#0d513d,#16845f);color:white;padding:28px 18px 32px}
-.wrap{width:min(1180px,100% - 28px);margin:auto}.top{display:flex;align-items:center;gap:14px}.logo{width:54px;height:54px;border-radius:16px;background:#ffffff20;display:grid;place-items:center;font-size:27px}
-h1{font-size:clamp(23px,4vw,32px);margin:0 0 4px}header p{margin:0;color:#e1f4eb}
-main{padding:22px 0 42px}.panel{background:white;border:1px solid var(--line);border-radius:18px;padding:18px;margin-bottom:16px;box-shadow:0 5px 18px #193c2a08}
-.panel h2{font-size:18px;margin:0 0 12px}.controls{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
-.field{display:flex;flex-direction:column;gap:6px}.field.full{grid-column:1/-1}label{font-weight:700;font-size:13px}
-input,textarea,button{font:inherit}input[type=text],input[type=file],textarea{width:100%;border:1px solid #d7e3dc;border-radius:10px;padding:11px 12px;background:#fff;color:var(--ink)}textarea{min-height:90px;resize:vertical}
-.help{font-size:12px;color:var(--muted);margin:4px 0 0}.privacy{background:#f0f8f3;border:1px solid #d9eee1;padding:10px 12px;border-radius:10px;font-size:13px;color:#285c43;margin-top:10px}
-.stats{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}.count{font-size:14px;color:var(--muted)}.search{max-width:430px}
-.table-wrap{overflow:auto;border-radius:13px;border:1px solid var(--line)}table{border-collapse:collapse;width:100%;min-width:850px;background:white}th,td{padding:12px 11px;border-bottom:1px solid var(--line);text-align:right;vertical-align:middle}th{background:#edf5f0;color:#315b49;font-size:13px;white-space:nowrap}td{font-size:13px}tbody tr:hover{background:#f8fcf9}tbody tr:last-child td{border-bottom:0}.school{font-weight:700;min-width:190px}.phone{direction:ltr;text-align:right;white-space:nowrap}.address{min-width:180px;max-width:260px}.actions{display:flex;gap:7px;flex-wrap:wrap}
-.btn{border:0;border-radius:9px;padding:8px 11px;display:inline-flex;align-items:center;justify-content:center;gap:6px;text-decoration:none;cursor:pointer;font-size:13px;font-weight:700;white-space:nowrap}
-.wa{background:#19a765;color:white}.map{background:#edf4ff;color:#2157a5}.secondary{background:#edf5f0;color:#235a43}.btn:hover{filter:brightness(.96)}.btn:disabled{opacity:.45;cursor:not-allowed}
-.empty{text-align:center;color:var(--muted);padding:34px 12px}.footer{text-align:center;color:var(--muted);font-size:12px;margin-top:18px}
-@media(max-width:650px){.controls{grid-template-columns:1fr}.field.full{grid-column:auto}.panel{padding:13px}.top{align-items:flex-start}.logo{flex-shrink:0}.search{max-width:none;width:100%}.stats{align-items:stretch}}
-</style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>دليل المدارس | التواصل عبر الواتساب</title>
+    <meta name="description" content="دليل المدارس للبحث والتواصل عبر واتساب وفتح مواقع المدارس على الخريطة.">
+    <style>
+        :root {
+            --green: #126b50;
+            --green2: #16845f;
+            --ink: #172b25;
+            --muted: #687a73;
+            --line: #e2ebe6;
+            --bg: #f4f8f6;
+            --white: #fff
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--ink);
+            font-family: Tahoma, Arial, sans-serif;
+            line-height: 1.6
+        }
+
+        header {
+            background: linear-gradient(130deg, #0d513d, #16845f);
+            color: white;
+            padding: 28px 18px 32px
+        }
+
+        .wrap {
+            width: min(1180px, 100% - 28px);
+            margin: auto
+        }
+
+        .top {
+            display: flex;
+            align-items: center;
+            gap: 14px
+        }
+
+        .logo {
+            width: 54px;
+            height: 54px;
+            border-radius: 16px;
+            background: #ffffff20;
+            display: grid;
+            place-items: center;
+            font-size: 27px
+        }
+
+        h1 {
+            font-size: clamp(23px, 4vw, 32px);
+            margin: 0 0 4px
+        }
+
+        header p {
+            margin: 0;
+            color: #e1f4eb
+        }
+
+        main {
+            padding: 22px 0 42px
+        }
+
+        .panel {
+            background: white;
+            border: 1px solid var(--line);
+            border-radius: 18px;
+            padding: 18px;
+            margin-bottom: 16px;
+            box-shadow: 0 5px 18px #193c2a08
+        }
+
+        .panel h2 {
+            font-size: 18px;
+            margin: 0 0 12px
+        }
+
+        .controls {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 12px
+        }
+
+        .field {
+            display: flex;
+            flex-direction: column;
+            gap: 6px
+        }
+
+        .field.full {
+            grid-column: 1/-1
+        }
+
+        label {
+            font-weight: 700;
+            font-size: 13px
+        }
+
+        input,
+        textarea,
+        button {
+            font: inherit
+        }
+
+        input[type=text],
+        input[type=file],
+        textarea {
+            width: 100%;
+            border: 1px solid #d7e3dc;
+            border-radius: 10px;
+            padding: 11px 12px;
+            background: #fff;
+            color: var(--ink)
+        }
+
+        textarea {
+            min-height: 90px;
+            resize: vertical
+        }
+
+        .help {
+            font-size: 12px;
+            color: var(--muted);
+            margin: 4px 0 0
+        }
+
+        .privacy {
+            background: #f0f8f3;
+            border: 1px solid #d9eee1;
+            padding: 10px 12px;
+            border-radius: 10px;
+            font-size: 13px;
+            color: #285c43;
+            margin-top: 10px
+        }
+
+        .stats {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            flex-wrap: wrap
+        }
+
+        .count {
+            font-size: 14px;
+            color: var(--muted)
+        }
+
+        .search {
+            max-width: 430px
+        }
+
+        .table-wrap {
+            overflow: auto;
+            border-radius: 13px;
+            border: 1px solid var(--line)
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            min-width: 850px;
+            background: white
+        }
+
+        th,
+        td {
+            padding: 12px 11px;
+            border-bottom: 1px solid var(--line);
+            text-align: right;
+            vertical-align: middle
+        }
+
+        th {
+            background: #edf5f0;
+            color: #315b49;
+            font-size: 13px;
+            white-space: nowrap
+        }
+
+        td {
+            font-size: 13px
+        }
+
+        tbody tr:hover {
+            background: #f8fcf9
+        }
+
+        tbody tr:last-child td {
+            border-bottom: 0
+        }
+
+        .school {
+            font-weight: 700;
+            min-width: 190px
+        }
+
+        .phone {
+            direction: ltr;
+            text-align: right;
+            white-space: nowrap
+        }
+
+        .address {
+            min-width: 180px;
+            max-width: 260px
+        }
+
+        .actions {
+            display: flex;
+            gap: 7px;
+            flex-wrap: wrap
+        }
+
+        .btn {
+            border: 0;
+            border-radius: 9px;
+            padding: 8px 11px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            text-decoration: none;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 700;
+            white-space: nowrap
+        }
+
+        .wa {
+            background: #19a765;
+            color: white
+        }
+
+        .map {
+            background: #edf4ff;
+            color: #2157a5
+        }
+
+        .secondary {
+            background: #edf5f0;
+            color: #235a43
+        }
+
+        .btn:hover {
+            filter: brightness(.96)
+        }
+
+        .btn:disabled {
+            opacity: .45;
+            cursor: not-allowed
+        }
+
+        .empty {
+            text-align: center;
+            color: var(--muted);
+            padding: 34px 12px
+        }
+
+        .footer {
+            text-align: center;
+            color: var(--muted);
+            font-size: 12px;
+            margin-top: 18px
+        }
+
+        @media(max-width:650px) {
+            .controls {
+                grid-template-columns: 1fr
+            }
+
+            .field.full {
+                grid-column: auto
+            }
+
+            .panel {
+                padding: 13px
+            }
+
+            .top {
+                align-items: flex-start
+            }
+
+            .logo {
+                flex-shrink: 0
+            }
+
+            .search {
+                max-width: none;
+                width: 100%
+            }
+
+            .stats {
+                align-items: stretch
+            }
+        }
+    </style>
 </head>
+
 <body>
-<header><div class="wrap top"><div class="logo" aria-hidden="true">🏫</div><div><h1>دليل المدارس</h1><p>ابحثي عن المدرسة وتواصلي معها مباشرة عبر واتساب</p></div></div></header>
-<main class="wrap">
-<section class="panel">
-<h2>١. استيراد بيانات المدارس</h2>
-<div class="field"><label for="excelFile">اختاري ملف Excel (.xlsx أو .xls)</label><input id="excelFile" type="file" accept=".xlsx,.xls,.csv"><p class="help">يدعم الأعمدة: # أو رقم التسلسل، اسم المدرسة، رقم الهاتف، العنوان، رابط الموقع أو رابط اللوكيشن.</p></div>
-<div class="privacy">🔒 ملف Excel يُقرأ داخل متصفحك ولا يتم رفعه إلى الموقع أو حفظه في GitHub. ارفعي الملف عند فتح الصفحة لعرض البيانات.</div>
-</section>
-<section class="panel">
-<h2>٢. رسالة واتساب الجاهزة</h2>
-<div class="field"><label for="message">اكتبي الرسالة التي تريدين إرسالها (يمكن تعديلها قبل التواصل)</label><textarea id="message">السلام عليكم ورحمة الله وبركاته، نرغب بالتواصل مع إدارة المدرسة للتعريف بخدماتنا. هل يمكن توجيهنا للشخص المسؤول؟ شكرًا لكم.</textarea><p class="help">عند الضغط على زر واتساب، تُفتح المحادثة والرسالة مُعبأة فقط؛ اضغطي إرسال من واتساب بنفسك.</p></div>
-</section>
-<section class="panel">
-<div class="stats"><h2 style="margin:0">قائمة المدارس</h2><span class="count" id="count">لم يتم تحميل ملف بعد</span><input class="search" id="search" type="text" placeholder="ابحثي باسم المدرسة أو الهاتف أو العنوان..." aria-label="بحث"></div>
-<div style="height:14px"></div>
-<div class="table-wrap"><table><thead><tr><th>#</th><th>اسم المدرسة</th><th>رقم الهاتف</th><th>العنوان</th><th>رابط اللوكيشن</th><th>التواصل</th></tr></thead><tbody id="rows"><tr><td colspan="6" class="empty">ارفعي ملف Excel لعرض بيانات المدارس هنا.</td></tr></tbody></table></div>
-</section>
-<div class="footer">
-تم التصميم والبرمجة بواسطة المبرمجة اماني محسن 2026-2027
-</div>
-</main>
-<script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
-<script>
-const fileInput=document.getElementById('excelFile'), rowsEl=document.getElementById('rows'), searchEl=document.getElementById('search'), countEl=document.getElementById('count');
-let schools=[];
-const norm=s=>String(s??'').trim().toLowerCase().replace(/[أإآ]/g,'ا').replace(/ى/g,'ي').replace(/\s+/g,' ');
-function getVal(row, names){const keys=Object.keys(row);for(const name of names){const found=keys.find(k=>norm(k)===norm(name));if(found)return row[found];}return '';}
-function text(v){return v===null||v===undefined?'':String(v).trim();}
-function phoneText(v){if(v===null||v===undefined||v==='')return '';if(typeof v==='number')return String(Math.trunc(v));return String(v).trim().replace(/\.0$/,'');}
-function waNumber(value){
- let n=phoneText(value).replace(/[^\d+]/g,'').replace(/\D/g,'');
- if(!n)return '';
- if(n.startsWith('00'))n=n.slice(2);
- if(n.startsWith('0'))n=n.slice(1);
- // أرقام السعودية المحلية تبدأ غالبًا بـ 05 أو 01، وأرقام مصر بـ 01.
- // عند وجود كود دولة بالملف، يُترك كما هو.
- if(n.startsWith('966')||n.startsWith('20'))return n;
- if(n.length===9 && /^[5]/.test(n))return '966'+n;
- if(n.length===9 && /^[1-9]/.test(n))return n; 
- return n;
-}
-function link(url,label){const a=document.createElement('a');a.className='btn map';a.href=url;a.target='_blank';a.rel='noopener noreferrer';a.textContent=label;return a;}
-function render(){
- const q=norm(searchEl.value);
- const filtered=schools.filter(s=>norm([s.no,s.name,s.phone,s.address].join(' ')).includes(q));
- countEl.textContent=`${filtered.length} مدرسة${filtered.length!==schools.length?' من أصل '+schools.length:''}`;
- rowsEl.replaceChildren();
- if(!filtered.length){const tr=document.createElement('tr'),td=document.createElement('td');td.colSpan=6;td.className='empty';td.textContent=schools.length?'لا توجد نتائج مطابقة للبحث.':'ارفعي ملف Excel لعرض بيانات المدارس هنا.';tr.append(td);rowsEl.append(tr);return;}
- for(const s of filtered){
-  const tr=document.createElement('tr');
-  const add=(value,cls='')=>{const td=document.createElement('td');if(cls)td.className=cls;td.textContent=value||'—';tr.append(td);return td;};
-  add(s.no);add(s.name,'school');add(s.phone,'phone');add(s.address,'address');
-  const mapTd=document.createElement('td');if(s.map && /^https?:\/\//i.test(s.map))mapTd.append(link(s.map,'📍 فتح اللوكيشن'));else mapTd.textContent='—';tr.append(mapTd);
-  const actTd=document.createElement('td'),actions=document.createElement('div');actions.className='actions';
-  const number=waNumber(s.phone);
-  const wa=document.createElement('a');wa.className='btn wa';wa.textContent='☏ إرسال واتساب';
-  if(number){wa.href='https://wa.me/'+number+'?text='+encodeURIComponent(document.getElementById('message').value.replaceAll('{اسم المدرسة}',s.name));wa.target='_blank';wa.rel='noopener noreferrer';}
-  else{wa.href='#';wa.style.opacity='.45';wa.title='لا يوجد رقم هاتف';wa.addEventListener('click',e=>e.preventDefault());}
-  actions.append(wa);
-  if(s.phone){const tel=document.createElement('a');tel.className='btn secondary';tel.textContent='☎ اتصال';tel.href='tel:'+s.phone.replace(/[^\d+]/g,'');actions.append(tel);}
-  actTd.append(actions);tr.append(actTd);rowsEl.append(tr);
- }
-}
-fileInput.addEventListener('change',async e=>{
- const file=e.target.files[0];if(!file)return;
- try{
-  if(typeof XLSX==='undefined')throw new Error('تعذر تحميل قارئ Excel. تأكدي من اتصال الإنترنت ثم أعيدي فتح الصفحة.');
-  const buffer=await file.arrayBuffer(),workbook=XLSX.read(buffer,{type:'array'}),sheet=workbook.Sheets[workbook.SheetNames[0]],data=XLSX.utils.sheet_to_json(sheet,{defval:'',raw:false});
-  if(!data.length)throw new Error('الملف لا يحتوي على صفوف بيانات.');
-  schools=data.map((r,i)=>({
-   no:text(getVal(r,['#','رقم التسلسل','رقم التسلسل','مسلسل','التسلسل']))||String(i+1),
-   name:text(getVal(r,['اسم المدرسة','المدرسة','اسم الجهة'])),
-   phone:phoneText(getVal(r,['رقم الهاتف','الهاتف','رقم الجوال','رقم التواصل','الجوال','رقم التليفون'])),
-   address:text(getVal(r,['العنوان','عنوان المدرسة','العنوان بالتفصيل'])),
-   map:text(getVal(r,['رابط الموقع','رابط اللوكيشن','اللوكيشن','رابط الموقع الجغرافي','رابط الخريطة']))
-  })).filter(s=>s.name||s.phone||s.address);
-  if(!schools.length)throw new Error('لم أجد بيانات مدارس. راجعي أسماء الأعمدة في الصف الأول.');
-  render();
- }catch(err){alert('تعذر قراءة الملف: '+err.message);}
-});
-searchEl.addEventListener('input',render);
-</script>
+    <header>
+        <div class="wrap top">
+            <div class="logo" aria-hidden="true">🏫</div>
+            <div>
+                <h1>دليل المدارس</h1>
+                <p>ابحثي عن المدرسة وتواصلي معها مباشرة عبر واتساب</p>
+            </div>
+        </div>
+    </header>
+    <main class="wrap">
+        <section class="panel">
+            <h2>١. استيراد بيانات المدارس</h2>
+            <div class="field"><label for="excelFile">اختاري ملف Excel (.xlsx أو .xls)</label><input id="excelFile"
+                    type="file" accept=".xlsx,.xls,.csv">
+                <p class="help">يدعم الأعمدة: # أو رقم التسلسل، اسم المدرسة، رقم الهاتف، العنوان، رابط الموقع أو رابط
+                    اللوكيشن.</p>
+            </div>
+            <div class="privacy">🔒 ملف Excel يُقرأ داخل متصفحك ولا يتم رفعه إلى الموقع أو حفظه في GitHub. ارفعي الملف
+                عند فتح الصفحة لعرض البيانات.</div>
+        </section>
+        <section class="panel">
+            <h2>٢. رسالة واتساب الجاهزة</h2>
+            <div class="field"><label for="message">اكتبي الرسالة التي تريدين إرسالها (يمكن تعديلها قبل
+                    التواصل)</label>
+
+                <textarea id="message" placeholder="اكتبي هنا نص الرسالة التي تريدين إرسالها إلى المدارس..."></textarea>
+
+                <p class="help">
+                    اكتبي رسالتك هنا، وسيتم استخدامها عند الضغط على زر إرسال واتساب.
+                </p>
+
+            </div>
+        </section>
+        <section class="panel">
+            <div class="stats">
+                <h2 style="margin:0">قائمة المدارس</h2><span class="count" id="count">لم يتم تحميل ملف بعد</span><input
+                    class="search" id="search" type="text" placeholder="ابحثي باسم المدرسة أو الهاتف أو العنوان..."
+                    aria-label="بحث">
+            </div>
+            <div style="height:14px"></div>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>اسم المدرسة</th>
+                            <th>رقم الهاتف</th>
+                            <th>العنوان</th>
+                            <th>رابط اللوكيشن</th>
+                            <th>التواصل</th>
+                        </tr>
+                    </thead>
+                    <tbody id="rows">
+                        <tr>
+                            <td colspan="6" class="empty">ارفعي ملف Excel لعرض بيانات المدارس هنا.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        <div class="footer">
+            تم التصميم والبرمجة بواسطة المبرمجة اماني محسن 2026-2027
+        </div>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+    <script>
+        const fileInput = document.getElementById('excelFile'), rowsEl = document.getElementById('rows'), searchEl = document.getElementById('search'), countEl = document.getElementById('count');
+        let schools = [];
+        const norm = s => String(s ?? '').trim().toLowerCase().replace(/[أإآ]/g, 'ا').replace(/ى/g, 'ي').replace(/\s+/g, ' ');
+        function getVal(row, names) { const keys = Object.keys(row); for (const name of names) { const found = keys.find(k => norm(k) === norm(name)); if (found) return row[found]; } return ''; }
+        function text(v) { return v === null || v === undefined ? '' : String(v).trim(); }
+        function phoneText(v) { if (v === null || v === undefined || v === '') return ''; if (typeof v === 'number') return String(Math.trunc(v)); return String(v).trim().replace(/\.0$/, ''); }
+        function waNumber(value) {
+            let n = phoneText(value).replace(/[^\d+]/g, '').replace(/\D/g, '');
+            if (!n) return '';
+            if (n.startsWith('00')) n = n.slice(2);
+            if (n.startsWith('0')) n = n.slice(1);
+            // أرقام السعودية المحلية تبدأ غالبًا بـ 05 أو 01، وأرقام مصر بـ 01.
+            // عند وجود كود دولة بالملف، يُترك كما هو.
+            if (n.startsWith('966') || n.startsWith('20')) return n;
+            if (n.length === 9 && /^[5]/.test(n)) return '966' + n;
+            if (n.length === 9 && /^[1-9]/.test(n)) return n;
+            return n;
+        }
+        function link(url, label) { const a = document.createElement('a'); a.className = 'btn map'; a.href = url; a.target = '_blank'; a.rel = 'noopener noreferrer'; a.textContent = label; return a; }
+        function render() {
+            const q = norm(searchEl.value);
+            const filtered = schools.filter(s => norm([s.no, s.name, s.phone, s.address].join(' ')).includes(q));
+            countEl.textContent = `${filtered.length} مدرسة${filtered.length !== schools.length ? ' من أصل ' + schools.length : ''}`;
+            rowsEl.replaceChildren();
+            if (!filtered.length) { const tr = document.createElement('tr'), td = document.createElement('td'); td.colSpan = 6; td.className = 'empty'; td.textContent = schools.length ? 'لا توجد نتائج مطابقة للبحث.' : 'ارفعي ملف Excel لعرض بيانات المدارس هنا.'; tr.append(td); rowsEl.append(tr); return; }
+            for (const s of filtered) {
+                const tr = document.createElement('tr');
+                const add = (value, cls = '') => { const td = document.createElement('td'); if (cls) td.className = cls; td.textContent = value || '—'; tr.append(td); return td; };
+                add(s.no); add(s.name, 'school'); add(s.phone, 'phone'); add(s.address, 'address');
+                const mapTd = document.createElement('td'); if (s.map && /^https?:\/\//i.test(s.map)) mapTd.append(link(s.map, '📍 فتح اللوكيشن')); else mapTd.textContent = '—'; tr.append(mapTd);
+                const actTd = document.createElement('td'), actions = document.createElement('div'); actions.className = 'actions';
+
+
+                const number = waNumber(s.phone);
+
+                const wa = document.createElement('a');
+                wa.className = 'btn wa';
+                wa.textContent = '☏ إرسال واتساب';
+
+                if (number) {
+
+                    wa.href = '#';
+
+                    wa.addEventListener('click', function (e) {
+
+                        e.preventDefault();
+
+                        // قراءة الرسالة المكتوبة في مربع الرسالة
+                        const message = document.getElementById('message').value;
+
+                        // التأكد من كتابة الرسالة
+                        if (!message.trim()) {
+                            alert('من فضلك اكتبي الرسالة أولاً.');
+
+                            document.getElementById('message').focus();
+
+                            return;
+                        }
+
+                        // تجهيز رابط واتساب ويب
+                        const url =
+                            'https://web.whatsapp.com/send?phone=' +
+                            number +
+                            '&text=' +
+                            encodeURIComponent(message);
+
+                        // فتح محادثة المدرسة
+                        window.open(url, '_blank');
+
+                    });
+
+                } else {
+
+                    wa.href = '#';
+                    wa.style.opacity = '.45';
+                    wa.title = 'لا يوجد رقم هاتف';
+
+                    wa.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        alert('لا يوجد رقم هاتف لهذه المدرسة.');
+                    });
+
+                }
+
+                actions.append(wa);
+
+                if (s.phone) { const tel = document.createElement('a'); tel.className = 'btn secondary'; tel.textContent = '☎ اتصال'; tel.href = 'tel:' + s.phone.replace(/[^\d+]/g, ''); actions.append(tel); }
+                actTd.append(actions); tr.append(actTd); rowsEl.append(tr);
+            }
+        }
+        fileInput.addEventListener('change', async e => {
+            const file = e.target.files[0]; if (!file) return;
+            try {
+                if (typeof XLSX === 'undefined') throw new Error('تعذر تحميل قارئ Excel. تأكدي من اتصال الإنترنت ثم أعيدي فتح الصفحة.');
+                const buffer = await file.arrayBuffer(), workbook = XLSX.read(buffer, { type: 'array' }), sheet = workbook.Sheets[workbook.SheetNames[0]], data = XLSX.utils.sheet_to_json(sheet, { defval: '', raw: false });
+                if (!data.length) throw new Error('الملف لا يحتوي على صفوف بيانات.');
+                schools = data.map((r, i) => ({
+                    no: text(getVal(r, ['#', 'رقم التسلسل', 'رقم التسلسل', 'مسلسل', 'التسلسل'])) || String(i + 1),
+                    name: text(getVal(r, ['اسم المدرسة', 'المدرسة', 'اسم الجهة'])),
+                    phone: phoneText(getVal(r, ['رقم الهاتف', 'الهاتف', 'رقم الجوال', 'رقم التواصل', 'الجوال', 'رقم التليفون'])),
+                    address: text(getVal(r, ['العنوان', 'عنوان المدرسة', 'العنوان بالتفصيل'])),
+                    map: text(getVal(r, ['رابط الموقع', 'رابط اللوكيشن', 'اللوكيشن', 'رابط الموقع الجغرافي', 'رابط الخريطة']))
+                })).filter(s => s.name || s.phone || s.address);
+                if (!schools.length) throw new Error('لم أجد بيانات مدارس. راجعي أسماء الأعمدة في الصف الأول.');
+                render();
+            } catch (err) { alert('تعذر قراءة الملف: ' + err.message); }
+        });
+        searchEl.addEventListener('input', render);
+    </script>
 </body>
+
 </html>
